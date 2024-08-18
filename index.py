@@ -22,6 +22,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
+
 @app.route('/post', methods=['POST'])
 def handle_post():
     data = request.json  # Get JSON data sent in the request
