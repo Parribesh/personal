@@ -1,6 +1,11 @@
+import os
 from flask import Flask, request, jsonify,  render_template
 
 app = Flask(__name__)
+
+# Change the current working directory to the root directory of the script
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Handle GET request
 
@@ -49,4 +54,4 @@ def handle_delete(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8000)
