@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,  render_template
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Hello, World! Welcome through jenkins ci/cd. This should work Again!"
+    return render_template('index.html')
 
 # Handle POST request
 
