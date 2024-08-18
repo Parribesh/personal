@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Hello, World! Welcome through jenkins ci/cd"
+    return "Hello, World! Welcome through jenkins ci/cd. This should work!"
 
 # Handle POST request
 
