@@ -9,7 +9,6 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Handle GET request
 
-
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
@@ -26,6 +25,21 @@ def about():
 def contact():
     return render_template('contact.html')
 
+
+@app.route('/posts', methods=['GET'])
+def posts():
+    mylist = []
+    path = 'posts'
+    def get_posts():
+        for filename in os.listdir(path):
+            filepath = os.path.join(path, filename)
+            if os.path.isfile(filepath):
+                with open(filepath, 'r') as file:
+                    content= file.read()
+                    mylist.append(content)
+
+        return mylist
+    return render_template('posts.html', posts=get_posts())
 
 @app.route('/post', methods=['POST'])
 def handle_post():
